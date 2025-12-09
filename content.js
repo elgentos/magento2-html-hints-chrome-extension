@@ -11,8 +11,13 @@ let dragOffsetY = 0;
 
 // Track Shift+Z to toggle inspection
 document.addEventListener('keydown', function(e) {
-  if (e.shiftKey && e.key.toLowerCase() === 'z') {
-    e.preventDefault();
+  // Check for Shift+Z (both uppercase Z and lowercase z)
+  if (e.shiftKey && e.key === 'Z') {
+    // Only allow enabling if blocks/containers exist on the page
+    if (!inspectEnabled && !hasBlocksOrContainers) {
+      return; // Silently do nothing if no blocks found
+    }
+
     inspectEnabled = !inspectEnabled;
     showWarning(inspectEnabled);
 
@@ -90,6 +95,7 @@ function parseBlockComment(commentText) {
 
 // Store comment information for quick lookup
 const commentMap = new Map(); // Maps elements to their direct block/container comment
+let hasBlocksOrContainers = false; // Track if any blocks/containers are found
 
 // Find all block/container comments and map them to their elements
 function findBlockElements() {
@@ -116,6 +122,7 @@ function findBlockElements() {
 
         if (current) {
           commentMap.set(current, blockInfo);
+          hasBlocksOrContainers = true;
           // Also map to parent if the next sibling is not directly the block element
           // This helps catch cases where the comment is followed by text/whitespace
         }
@@ -133,6 +140,7 @@ function findBlockElements() {
 
         if (current) {
           commentMap.set(current, containerInfo);
+          hasBlocksOrContainers = true;
         }
       }
     }
@@ -448,8 +456,7 @@ function attachHoverListeners() {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape' && isPinned) {
     unpinTooltip();
-  } else if (e.shiftKey && e.key.toLowerCase() === 'a') {
-    e.preventDefault();
+  } else if (e.shiftKey && e.key === 'A') {
     if (isPinned) {
       // Unpin if already pinned
       unpinTooltip();
