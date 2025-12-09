@@ -1,0 +1,205 @@
+/* Magento Block Inspector Styles */
+
+.magento-inspector-warning {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999999;
+  padding: 12px 16px;
+  background: white;
+  border: 2px solid #ff6b6b;
+  border-radius: 6px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s ease-out;
+  color: #333;
+  pointer-events: none;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.magento-block-hovered {
+  outline: 2px solid #ff6b6b !important;
+  outline-offset: 2px !important;
+  background-color: rgba(255, 107, 107, 0.05) !important;
+}
+
+.magento-block-inspector-tooltip {
+  position: fixed;
+  z-index: 999999;
+  background: white;
+  border: 2px solid #ff6b6b;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  color: #333;
+  pointer-events: auto;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.magento-block-inspector-tooltip.pinned {
+  border-color: #4ecdc4;
+  box-shadow: 0 4px 16px rgba(78, 205, 196, 0.3);
+}
+
+.magento-tooltip-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #999;
+  cursor: pointer;
+  padding: 4px 6px;
+  line-height: 1;
+}
+
+.magento-tooltip-close:hover {
+  color: #ff6b6b;
+}
+
+.magento-tooltip-drag-handle {
+  position: absolute;
+  top: 8px;
+  right: 40px;
+  width: 24px;
+  height: 24px;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 12px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.magento-tooltip-drag-handle:active {
+  cursor: grabbing;
+}
+
+.magento-tooltip-drag-handle:hover {
+  color: #4ecdc4;
+}
+
+.magento-pin-instruction {
+  position: fixed;
+  z-index: 9999998;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.magento-block-inspector-tooltip .block-hierarchy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.magento-block-inspector-tooltip .block-item {
+  border-left: 3px solid #ff6b6b;
+  padding: 8px 0 8px 10px;
+  border-radius: 2px;
+}
+
+.magento-block-inspector-tooltip .block-item.container-type {
+  border-left-color: #9b59b6;
+}
+
+.magento-block-inspector-tooltip .block-item.block-type {
+  border-left-color: #ff6b6b;
+}
+
+
+.magento-block-inspector-tooltip .block-level {
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+  background-color: #ff6b6b;
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.magento-block-inspector-tooltip .block-level.container-type {
+  background-color: #9b59b6;
+}
+
+.magento-block-inspector-tooltip .block-level.block-type {
+  background-color: #ff6b6b;
+}
+
+.magento-block-inspector-tooltip .block-name,
+.magento-block-inspector-tooltip .block-class,
+.magento-block-inspector-tooltip .block-template,
+.magento-block-inspector-tooltip .block-file {
+  margin: 4px 0;
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+.magento-block-inspector-tooltip strong {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.magento-block-inspector-tooltip .block-item.container-type strong {
+  color: #9b59b6;
+}
+
+.magento-block-inspector-tooltip .block-item.block-type strong {
+  color: #ff6b6b;
+}
+
+.magento-block-inspector-tooltip .block-file {
+  font-size: 11px;
+  color: #666;
+  font-family: 'Courier New', monospace;
+  background-color: #f5f5f5;
+  padding: 4px;
+  border-radius: 3px;
+  margin-top: 4px;
+}
+
+/* Scrollbar styling for the tooltip */
+.magento-block-inspector-tooltip::-webkit-scrollbar {
+  width: 8px;
+}
+
+.magento-block-inspector-tooltip::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.magento-block-inspector-tooltip::-webkit-scrollbar-thumb {
+  background: #ff6b6b;
+  border-radius: 4px;
+}
+
+.magento-block-inspector-tooltip::-webkit-scrollbar-thumb:hover {
+  background: #ff5252;
+}
