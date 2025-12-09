@@ -1,10 +1,16 @@
-# Magento Block Inspector
+# Magento 2 Block HTML Hints Inspector
 
 A Chrome extension that displays Magento block information on hover without opening DevTools.
 
 ## For use with Yireo_HtmlHints
 
 This extension requires the [Yireo_HtmlHints](https://github.com/yireo/Yireo_HtmlHints) Magento 2 extension to be enabled on your store. It reads the HTML comments that extension adds to show block names, classes, and templates.
+
+## Video
+
+A 28 second video at 30fps says more than 800 pictures:
+
+https://github.com/user-attachments/assets/681b606b-7174-4d65-b277-639a98d4f148
 
 ## Installation
 
