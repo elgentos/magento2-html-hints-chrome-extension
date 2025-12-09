@@ -1,4 +1,4 @@
-# Magento Block Inspector
+# Magento 2 Block HTML Hints Inspector
 
 A Chrome extension that displays Magento block information on hover without opening DevTools.
 
